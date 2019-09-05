@@ -1,0 +1,19 @@
+<div *ngIf = "mostrar;">
+  <br><br>
+  <table border="2" style = "margin: 0 auto;">
+      <tr style = "background-color:darkblue;color :white">
+        <td>Nombre</td>
+        <td>Apellido</td>
+        <td>Sexo</td>
+        <td>Nacimiento</td>
+        <td>Edad</td>
+        <td>Sueldo</td>
+        <td>Licencia</td>
+      </tr>
+     <tr *ngFor="let item of user.getLista()" app-fila [item]="item">
+       <!-- <app-fila [item]="item"></app-fila> -->
+       <!-- <td>{{item.nombre}}</td>
+       <td>{{item.apellido}}</td> -->
+     </tr>
+  </table>
+</div>

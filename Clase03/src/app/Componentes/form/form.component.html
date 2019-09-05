@@ -1,0 +1,28 @@
+<form>
+  <input type="text" name = "nombre" placeholder = "Nombre" [(ngModel)] = "miPersona.nombre">
+  <br><br>
+  <input type="text" name = "apellido" placeholder = "Apellido" [(ngModel)] = "miPersona.apellido">
+  <br><br>
+  Sexo:
+  <select name="sexo" style= "height: 120%" [(ngModel)] = "miPersona.sexo">
+    <option value="F">F</option>
+    <option value="M">M</option>
+    <option value="O">O</option>
+  </select>
+  <br><br>
+  <input type = "text" name = "sueldo" placeholder = "Sueldo" [(ngModel)] = "miPersona.sueldo">
+  <br><br>
+  <input type="type" name = "edad" placeholder="Edad" [(ngModel)] = "miPersona.edad">
+  <br><br>
+  Licencia:
+  <select name="licencia" [(ngModel)] = "miPersona.licencia">
+    <option value="none" selected="true">----</option>
+    <option value="SI" >SI</option>
+    <option value="NO">NO</option>
+  </select>
+  <br><br>
+  Fecha nacimiento:
+  <input type="date" [(ngModel)] = "miPersona.fecha" name = "fecha">
+  <br><br>
+  <button (click) = "Manejadora()">Enviar</button>
+</form>
