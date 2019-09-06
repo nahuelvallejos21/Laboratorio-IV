@@ -1,0 +1,7 @@
+<td>{{item.nombre | test}}</td>
+<td>{{item.apellido | test}}</td>
+<td>{{item.sexo | sexo}}</td>
+<td>{{item.fecha | date:longTime }}</td>
+<td>{{item.edad | edad}}</td>
+<td>{{item.sueldo | currency:'ARS':'symbol':'4.2-2'}}</td>
+<td [innerHTML] = "item.licencia | siNo"></td>
