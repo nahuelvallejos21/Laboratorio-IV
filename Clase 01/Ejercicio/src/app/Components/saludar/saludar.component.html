@@ -1,0 +1,28 @@
+<!--<p>
+  Hola {{name}}
+</p>
+<img [src]="src" alt="" [width] = "width" [height]= "height">-->
+
+<form *ngIf = "enviado; else div2">
+  <input type="text" name = "nombre" [(ngModel)] = "nombre">
+  <br><br>
+  <input type="text" name = "apellido" [(ngModel)] = "apellido">
+  <br><br>
+  <div *ngIf = "mas ;">
+    <input type="email" name = "email" [(ngModel)] = "email">
+    <br><br> 
+    <input type="text" name = "dni" [(ngModel)] = "dni">
+  </div>
+  <br>
+  <button (click) = "Manejadora()">Enviar</button>
+  <button (click) = "Manejadora2()">+ Datos</button>
+</form>
+<ng-template #div2>
+    <h4>Su nombre es {{nombre}}, y su apellido es {{apellido}}.</h4>
+    <h4>Datos adicionales</h4>
+    <h4>DNI: {{dni}}</h4>
+    <h4>E-Mail : {{email}}</h4>
+    <br><br>
+    <button (click) = "Manejadora()">Cargar</button>
+</ng-template>
+

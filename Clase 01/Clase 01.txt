@@ -1,0 +1,23 @@
+///comando de instalacion Angular
+npm i -g @angular/cli
+comando de crear un proyecto
+ng new nombreProyecto
+comando para crear componentes
+ng generate component nombre
+iniciar el proyecto
+ng serve o npm start
+
+instalar las dependencias 
+npm i
+
+
+Angular es un framework del frontned
+Crear en forma nativa etiquetas html, llamados componentes (webComponents). 
+
+Realt, libreria .... Angular, framework
+
+LA libreria puede ser utilizada en cualquier parte del programa, caso contrario con un framework que debemos seguir determinadas reglas para programar
+
+
+//Clase02
+ng g class nombreClase
