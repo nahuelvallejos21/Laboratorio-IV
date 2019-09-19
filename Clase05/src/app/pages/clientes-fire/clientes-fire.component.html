@@ -1,0 +1,12 @@
+<table border = "1" style="margin-top: 2%">
+    <tr style="background-color: brown;color: white">
+        <td>Nombre</td>
+        <td>Apellido</td>
+        <td>DNI</td>
+    </tr>
+    <tr *ngFor = "let item of lista">
+       <td>{{item.nombre}}</td>
+       <td>{{item.apellido}}</td>
+       <td>{{item.DNI}}</td>
+    </tr>
+</table>

@@ -1,10 +1,42 @@
-<table border = "2">
+<table border = "1" style="margin-top: 5%">
     <tr>
-      <td>
-        Nombre
-      </td>
+      <td>ID</td>
+      <td>Nombre</td>
       <td>Apellido</td>
       <td>DNI</td>
-      <td>Productos COMPRADOS</td>
+      <td>Cantidad comprada</td>
+      <td>Volver...</td>
+    </tr>
+    <tr *ngIf = "id == 1">
+      <td>{{id}}</td>
+      <td>Ricardo</td>
+      <td>Gonzales</td>
+      <td>35147523</td>
+      <td>10</td>
+      <td><button routerLink = "/clientes">O</button></td>
+    </tr>
+    <tr *ngIf = "id == 2">
+      <td>{{id}}</td>
+      <td>Maria</td>
+      <td>Correa</td>
+      <td>38123654</td>
+      <td>21</td>
+      <td><button routerLink = "/clientes">O</button></td>
+    </tr>
+    <tr *ngIf = "id == 3">
+      <td>{{id}}</td>
+      <td>Facundo</td>
+      <td>Quiroga</td>
+      <td>41123654</td>
+      <td>5</td>
+      <td><button routerLink = "/clientes">O</button></td>
+    </tr>
+    <tr *ngIf = "id == 4">
+      <td>{{id}}</td>
+      <td>Laura</td>
+      <td>Perez</td>
+      <td>37123654</td>
+      <td>32</td>
+      <td><button routerLink = "/clientes">O</button></td>
     </tr>
 </table>

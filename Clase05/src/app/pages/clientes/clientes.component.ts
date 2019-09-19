@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { Router, RouterLink } from '@angular/router';
+import { Component, OnInit, Input } from '@angular/core';
+import {FirebaseService} from '../../core/servicios/firebase.service'
 
 @Component({
   selector: 'app-clientes',
@@ -8,9 +8,11 @@ import { Router, RouterLink } from '@angular/router';
 })
 export class ClientesComponent implements OnInit {
 
-  constructor() { }
+  
+  constructor(private servicio : FirebaseService) { }
 
   ngOnInit() {
+    
   }
 
 
