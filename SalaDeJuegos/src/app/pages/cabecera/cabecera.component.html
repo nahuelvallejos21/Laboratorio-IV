@@ -1,0 +1,14 @@
+<div style="background-color: rebeccapurple;" class="text-white">
+<nav class="navbar navbar-dark">
+    <a class="navbar-brand" href="" routerLink = "/" *ngIf = "mostrar;"><i class="fas fa-home"></i> Home</a>
+    <a class="navbar-brand" href="" routerLink = "/juegos" *ngIf = "!mostrar;"><i class="fas fa-arrow-circle-left"></i> Atras</a>
+    <form class="form-inline" style="justify-content:space-around;">
+      <a class="navbar-brand" routerLink = "/registro" href="" *ngIf = "!logueado"><i class="fas fa-user"></i> Registrarme</a>
+      <a class="navbar-brand" href="" routerLink = "/login" *ngIf = "!logueado"><i class="fas fa-arrow-right"></i> Ingresar</a>
+      
+      <a class="navbar-brand" href="" *ngIf = "logueado"><i class="fas fa-user-check"></i> {{nick}}</a>
+      <a class="navbar-brand" href="" *ngIf = "logueado" (click) = cerrarSesion() routerLink = "/"><i class="fas fa-sign-out-alt"></i> Cerrar Sesión</a>
+    </form>
+   
+  </nav>
+</div>

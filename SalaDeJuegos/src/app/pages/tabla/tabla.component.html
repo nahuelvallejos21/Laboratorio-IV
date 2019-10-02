@@ -1,0 +1,49 @@
+<table style="margin-top: 5%;position:absolute;top:23px;left:760px">
+    <tr>
+        <td><textarea [disabled] = "disponible[0]" readonly type="text" rows="8" cols="30" style="background-color: rebeccapurple;color: white;width:230px; height:200px;font-size: 800%;text-align: center" (click) = "completar(0)">{{celdas[0]}}</textarea></td>
+        <td><textarea [disabled] = "disponible[1]" readonly type="text" rows="8" cols="30" style="background-color: rebeccapurple;color: white;width:230px; height:200px;font-size: 800%;text-align: center" (click) = "completar(1)">{{celdas[1]}}</textarea></td>
+        <td><textarea [disabled] = "disponible[2]" readonly type="text" rows="8" cols="30" style="background-color: rebeccapurple;color: white;width:230px; height:200px;font-size: 800%;text-align: center" (click) = "completar(2)">{{celdas[2]}}</textarea></td>
+        
+        
+    </tr>
+    <tr>
+        <td><textarea [disabled] = "disponible[3]" readonly type="text" rows="8" cols="30" style="background-color: rebeccapurple;color: white;width:230px; height:200px;font-size: 800%;text-align: center" (click) = "completar(3)">{{celdas[3]}}</textarea></td>
+        <td><textarea [disabled]= "disponible[4]" readonly type="text" rows="8" cols="30" style="background-color: rebeccapurple;color: white;width:230px; height:200px;font-size: 800%;text-align: center" (click) = "completar(4)">{{celdas[4]}}</textarea></td>
+        <td><textarea [disabled] = "disponible[5]" readonly type="text" rows="8" cols="30" style="background-color: rebeccapurple;color: white;width:230px; height:200px;font-size: 800%;text-align: center" (click) = "completar(5)">{{celdas[5]}}</textarea></td>
+            
+    </tr>
+    <tr>
+        <td><textarea [disabled] = "disponible[6]" readonly type="text" rows="8" cols="30" style="background-color: rebeccapurple;color: white;width:230px; height:200px;font-size: 800%;text-align: center" (click) = "completar(6)">{{celdas[6]}}</textarea></td>
+        <td><textarea [disabled] = "disponible[7]" readonly type="text" rows="8" cols="30" style="background-color: rebeccapurple;color: white;width:230px; height:200px;font-size: 800%;text-align: center" (click) = "completar(7)">{{celdas[7]}}</textarea></td>
+        <td><textarea [disabled] = "disponible[8]" readonly type="text" rows="8" cols="30" style="background-color: rebeccapurple;color: white;width:230px; height:200px;font-size: 800%;text-align: center" (click) = "completar(8)">{{celdas[8]}}</textarea></td>
+            
+    </tr>
+    
+</table>
+<table style="position:absolute;top:23px;left:45px;margin-top:10%">
+    <tr>
+       <td><button type="button" class="btn btn-outline-primary" style='width:250px; height:250px;font-size: 1000%;background-color: tomato' (click) = "elegir('X')" [disabled] = "bloquear">X</button></td>
+       <td><button type="button" class="btn btn-outline-primary" style='width:250px; height:250px;font-size: 1000%;background-color: teal' (click) = "elegir('O')" [disabled] = "bloquear">O</button></td>
+    </tr>
+    <tr>
+        <td><br><br></td>
+    </tr>
+    <tr>
+        <td COLSPAN="2"><button class="btn btn-warning" style="height: 50px;width:500px" (click) = "limpiar()"><i class="fa fa-trash" aria-hidden="true"></i></button></td>
+    </tr>
+    <tr>
+       <td COLSPAN="2"></td>
+    </tr>
+    <tr>
+        <td COLSPAN="2"></td>
+    </tr>
+    <tr>
+        <td COLSPAN="2"><button class="btn btn-success" style="height: 50px;width:500px" routerLink = "/lista"><i class="fas fa-chart-line" aria-hidden="true"></i></button></td>
+    </tr>
+    <tr>
+        <td COLSPAN="2"><div *ngIf = "mostrar" class="alert alert-primary" role="alert" style="font-size: 20px">{{msj}}</div> </td>
+    </tr>
+</table>
+
+
+

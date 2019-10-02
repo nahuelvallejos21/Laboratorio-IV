@@ -1,22 +1,23 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import {FormsModule, ReactiveFormsModule} from '@angular/forms'
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { InicioComponent } from './Componentes/inicio/inicio.component';
-import { CabeceraComponent } from './Componentes/cabecera/cabecera.component';
-import { MenuComponent } from './Componentes/menu/menu.component';
-
+import {PagesModule} from './pages/pages.module'
+import {AngularFireModule} from '@angular/fire'
+import {CONFIG} from './core/confi_firbase'
+import {AngularFirestoreModule} from '@angular/fire/firestore';
 @NgModule({
   declarations: [
     AppComponent,
-    InicioComponent,
-    CabeceraComponent,
-    MenuComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    PagesModule,
+    AngularFireModule.initializeApp(CONFIG),
+    AngularFirestoreModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

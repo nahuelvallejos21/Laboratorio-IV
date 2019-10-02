@@ -1,0 +1,19 @@
+
+<div style="margin:auto;text-align: center;margin-top: 1%;">
+    <label style="color: tomato;font-size: 700%" class="stroke">{{azar.palabra}}</label>
+    <br>
+    <label style="color: tomato;font-size: 200%">{{contador}}</label>
+</div>
+<div style="margin:auto;text-align: center;" *ngIf = "mostrar">
+    <label style="color: greenyellow;font-size:200%" *ngIf = "correcto">Correcto!</label>
+    <label style="color: red;font-size:200%" *ngIf = "incorrecto">Incorrecto!, la respuesta es {{msj}}</label>
+</div>
+
+<div style= "margin:auto;text-align: center;margin-top: 2%">
+    <input type="text" placeholder="Ingrese la respuesta" [(ngModel)] = "respuesta" [disabled] = "bloquearText">
+    <button class="btn-space" (click) = jugar() [disabled]= "bloquearBoton">Aceptar <i class="fas fa-check"></i></button>
+    <app-reglas-an></app-reglas-an>
+    <button class="btn-space" (click) = reiniciar()>Reiniciar <i class="fas fa-sync"></i></button>
+    <br><br>
+    <button class="btn btn-primary" style="height: 50px;width:400px" routerLink = "/lista"><i class="fas fa-chart-line" aria-hidden="true"></i></button>
+</div>

@@ -1,0 +1,40 @@
+
+<div *ngIf = "mostrar">
+    <form>
+        <div class="card card animated bounceInLeft delay-0.5s">
+            <div class="card-header" style="background-color: tomato">
+              TATETTI
+            </div>
+            <div class="card-body">
+                <p><img style = "float:left; margin:7px;" src="../../../assets/img/tateti.jpg" alt="" width="10%" height="160%" class="animated bounce delay-0.5s" >Cada jugador solo debe colocar su símbolo una vez por turno y no debe ser sobre una casilla ya jugada. En caso de que el jugador haga trampa el ganador será el otro. Se debe conseguir realizar una línea recta o diagonal por símbolo. Si el jugador marca una casilla, aunque sea la más mínima marca, deberá poner símbolo de la siguiente jugada en esa casilla.</p>
+                <br>
+                <a  href = "" class="btn btn-primary card text-center" style="background-color: rebeccapurple"  routerLink = "/juegos/tateti">Jugar TATTETI</a>
+            </div>
+            
+          </div>
+          <div class="card animated bounceInRight delay-0.5s">
+                <div class="card-header" style="background-color: tomato">
+                  ANAGRAMA
+                </div>
+                <div class="card-body text-center">
+                    <img src="../../../assets/img/anagrama.jpg" alt="" class="animated bounce delay-0.5s">
+                    <br><br>
+                    <p>Un anagrama es una palabra o frase obtenida mediante la transposición de las letras de otra palabra o frase, por ejemplo un anagrama de la palabra «letras» sería «lastre» y el anagrama de «frase» sería «fresa».</p>
+                    <br>
+                    <a href="" class="btn btn-primary card text-center" style="background-color: rebeccapurple" routerLink = "/juegos/anagrama">Jugar ANAGRAMA</a>
+                </div>
+           </div>
+           <div class="card card animated bounceInLeft delay-0.5s">
+                <div class="card-header" style="background-color: tomato">
+                  MEMOCOLOR
+                </div>
+                <div class="card-body">
+                    <p><img style = "float:left; margin:7px;" src="../../../assets/img/memocolor.png" alt="" width="10%" height="160%" class="animated bounce delay-0.5s" >Utilize su memoria para recordar los diferentes conjuntos de colores.Cada nivel tendra su propia dificultad.</p>
+                    <br>
+                    <a href="" class="btn btn-primary card text-center" style="background-color: rebeccapurple" routerLink="/juegos/memocolor">Jugar MEMOCOLOR</a>
+                </div>
+                
+            </div>
+    </form>
+</div>
+<router-outlet></router-outlet>

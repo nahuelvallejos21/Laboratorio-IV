@@ -1,0 +1,42 @@
+<div class="container form-inline animated bounceIn delay-0.5s" style="margin-top: 8%;justify-content:space-around;background-color:138,221,45,0 ;color: white">
+        <div class="card" style="width: 20rem;height: 50%;" style="width: 40%;background-color:rebeccapurple">
+                <img src="../../../assets/img/juegos.png" class="card-img-top">
+                <div class="card-body">
+                    <h5 class="card-title">Lista de juegos</h5>
+                    <p class="card-text">En esta seccion encontrara el catalago de juegos </p>
+                    <button class="btn btn-primary" style= "background-color: tomato" (click) = "irJugar()">Jugar</button>
+                    <br><br>
+                    <div class="alert alert-warning alert-dismissible fade show" role="alert" *ngIf = "mostrarAlerta;" style = "background-color: tomato;color: white">
+                            <strong>Inicie sesión</strong> para poder disfrutar de los juegos.
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close" (click) = cerrar()>
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                </div>
+              
+            </div>
+      
+            <div class="card" style="width: 20rem;" style="width: 30%;;background-color:rebeccapurple">
+                    <img src="../../../assets/img/estadisticas.jpg" alt="" class="card-img-top">   
+                    <div class="card-body" style="margin: 0 auto;">
+                        <h5 class="card-title">Estadisticas</h5>
+                        <p class="card-text">Diferentes estadisticas de los juegos y de los jugadores </p>
+                        <button class="btn btn-primary" style= "background-color: tomato" (click) = "irLista()">Ver</button>
+                        <br><br>
+                        <div class="alert alert-warning alert-dismissible fade show" role="alert" *ngIf = "mostrarAlerta2;" style = "background-color: tomato;color: white">
+                                <strong>Inicie sesión</strong> para ver las estadisticas de los jugadores.
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close" (click) = cerrar()>
+                                <span aria-hidden="true">&times;</span>
+                               </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="card" style="width: 20rem;" style="width: 20%;;background-color:rebeccapurple">
+                        <img src="../../../assets/img/info.png" alt="" class="card-img-top">   
+                        <div class="card-body" style="margin: 0 auto;">
+                            <h5 class="card-title">Información de la página</h5>
+                            <a href="" class="btn btn-primary" style= "background-color: tomato" routerLink = "info">Ver</a>
+                        </div>
+                    </div>
+</div>
+<router-outlet></router-outlet>

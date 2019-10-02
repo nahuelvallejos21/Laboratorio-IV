@@ -1,0 +1,20 @@
+<div style="margin:auto;text-align:center;margin-top: 5%">
+    <label style="font-size:600%" class = "stroke" *ngIf = "mostrarM">{{color}}</label>
+    <img src="../../../assets/img/colores/azul.png" alt="" *ngIf = "mostrarA" width="30%" height="30%">
+    <img src="../../../assets/img/colores/rojo.png" alt="" *ngIf = "mostrarR" width="30%" height="30%">
+    <img src="../../../assets/img/colores/verde.png" alt="" *ngIf = "mostrarV" width="30%" height="30%">
+    <img src="../../../assets/img/colores/amarillo.png" alt="" *ngIf = "mostrarAm" width="30%" height="30%">
+    <br><br>
+    <div>
+        <button (click) = "iniciar()" class = "btn btn-warning btn-lg" style="margin-top:5%;width: 80%;" *ngIf = "mostrarB">JUGAR</button>
+        <button (click) = "reiniciar()" class = "btn btn-danger btn-lg" style="margin-top:5%;width: 80%;" *ngIf = "mostrarB3">JUGAR DE NUEVO</button>
+        <br><br><br>
+        <button class="btn btn-success btn-lg" style="width: 80%;;color: teal" routerLink = "/lista"  *ngIf = "mostrarB"><i class="fas fa-chart-line" aria-hidden="true" style="color:yellow"></i></button>
+    </div>
+</div>
+<div style="margin:auto;text-align:center;margin-top: 15%;font-size: 200%" *ngIf = "mostrarB2">
+    <button (click) = "jugar('azul')" style="background-color: blue">AZUL</button>
+    <button (click) = "jugar('amarillo')" style="background-color: yellow">AMARILLO</button>
+    <button (click) = "jugar('verde')" style="background-color: green">VERDE</button>
+    <button (click) = "jugar('rojo')" style="background-color: red">ROJO</button>
+</div>

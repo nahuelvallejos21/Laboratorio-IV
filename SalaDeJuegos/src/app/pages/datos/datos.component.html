@@ -1,0 +1,20 @@
+<table class = "table table-striped" style="color:white">
+    <tr style="background-color: tomato">
+        <td>JUGADOR</td>
+        <td>TA-TE-TI : Ganados</td>
+        <td>TA-TE-TI : Perdidas</td>
+        <td>Anagrama : Ganados</td>
+        <td>Anagrama : Perdidos</td>
+        <td>Memocolor : Ganados</td>
+        <td>Memocolor : Perdidos</td>
+    </tr>
+    <tr *ngFor = "let jugador of lista">
+        <td>{{jugador.nick}}</td>
+        <td>{{jugador.tatetiG}}</td>
+        <td>{{jugador.tatetiP}}</td>
+        <td>{{jugador.anagramaG}}</td>
+        <td>{{jugador.anagramaP}}</td>
+        <td>{{jugador.miJuegoG}}</td>
+        <td>{{jugador.miJuegoP}}</td>
+    </tr>
+</table>
