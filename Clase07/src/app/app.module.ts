@@ -6,6 +6,14 @@ import { AppComponent } from './app.component';
 import { AlgoComponent } from './componentes/algo/algo.component';
 import { HomeComponent } from './componentes/home/home.component';
 import {HttpClientModule} from '@angular/common/http';
+import { AngularFireModule } from '@angular/fire';
+import { config } from '../environments/environment';
+import {AngularFireAuthModule} from '@angular/fire/auth';
+// import { JwtModule } from "@auth0/angular-jwt";
+// export function tokenGetter() {
+//   return localStorage.getItem("token");
+// }
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -16,7 +24,10 @@ import {HttpClientModule} from '@angular/common/http';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    AngularFireModule.initializeApp(config),
+    AngularFireAuthModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]

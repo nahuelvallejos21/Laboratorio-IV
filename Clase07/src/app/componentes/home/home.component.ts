@@ -13,10 +13,13 @@ export class HomeComponent implements OnInit {
   constructor(private miServicio : UserService,private router : Router) { }
   user = {};
   ngOnInit() {
+    localStorage.setItem("logueado",null);
   }
   ingresar(){
-    console.log(this.user);
+   console.log(this.user);
     this.miServicio.setUser(this.user);
+    // this.router.navigate(["/algo"]);
+    // this.miServicio.login(this.user);
     this.router.navigate(["/algo"]);
   }
 

@@ -1,6 +1,8 @@
-import { Router } from '@angular/router';
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
+import {Router} from '@angular/router';
+import {AngularFireAuth} from '@angular/fire/auth'
+import undefined = require('firebase/empty-import');
 
 @Injectable({
   providedIn: 'root'
@@ -8,23 +10,33 @@ import {HttpClient} from '@angular/common/http';
 export class UserService {
 
   static user;
-  constructor(private router : Router, private Http: HttpClient) {
+  constructor(private router : Router, private Http: HttpClient, private fireAuth : AngularFireAuth)  {
   }
   setUser(user : any){
-     UserService.user = user;
-     console.log(UserService.user);
-     this.Http.get("http://192.160.2.85:3003/clientes",user).subscribe(element=>{
-       console.log(element);
-     })
+    localStorage.setItem("logueado",user);
   }
   estaAutenticado(){
-    // tslint:disable-next-line: triple-equals
-    if(JSON.stringify(UserService.user) != '{}'){
+    
+    console.log(localStorage.getItem("logueado"));
+    if(localStorage.getItem("logueado") != 'null' ){
       return true;
     } else{
-      console.log('No entro ');
       return false;
     }
 
+  }
+  login(user : any){
+      try{
+      let resultado = this.fireAuth.auth.signInWithEmailAndPassword(user.name,user.pass);
+      console.log(resultado);
+      if(resultado){
+        this.fireAuth.idToken.subscribe(token =>{
+          localStorage.setItem("token","ñkdsñkas");
+        })
+      }
+      }
+      catch(e){
+        localStorage.setItem("token","no logueado");
+      }
   }
 }

@@ -1,6 +1,4 @@
 import { Component, OnInit, ɵConsole } from '@angular/core';
-import { element } from 'protractor';
-import { setTimeout } from 'timers';
 import { FirebaseService } from 'src/app/core/servicios/firebase.service';
 
 @Component({
