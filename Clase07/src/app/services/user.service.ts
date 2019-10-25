@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Router} from '@angular/router';
-import {AngularFireAuth} from '@angular/fire/auth'
-import undefined = require('firebase/empty-import');
+import {AngularFireAuth} from '@angular/fire/auth';
+
 
 @Injectable({
   providedIn: 'root'
@@ -38,5 +38,47 @@ export class UserService {
       catch(e){
         localStorage.setItem("token","no logueado");
       }
+  }
+  htttpAgregar(cliente : any){
+     this.Http.post("http://127.0.0.1:3003/clientes",cliente).subscribe(data =>{
+       console.log(data);
+     });
+  }
+  httpAutenticar(cliente:any){
+    this.Http.post("http://127.0.0.1:3003/login",cliente).subscribe(data =>{
+      console.log(data);
+      if(data["token"] != null){
+        localStorage.setItem("token",data["token"]);
+        this.router.navigate(["/algo"]);
+      }
+      else{
+        console.log("Error!, no esta registrado");
+      }
+    })
+  }
+  httpAgregarAuto(auto:any){
+     let token = localStorage.getItem("token");
+     console.log(token);
+     console.log(auto);
+     const options = {
+       headers : new HttpHeaders({
+        'Content-Type': 'application/json',
+        'token': token
+       })
+     };
+     this.Http.post("http://127.0.0.1:3003/auto/",auto,options).subscribe(data =>{
+       console.log(data);
+     })
+  }
+  httpTraerAutos(){
+    let token = localStorage.getItem("token");
+     console.log(token);
+     const options = {
+       headers : new HttpHeaders({
+        'Content-Type': 'application/json',
+        'token': token
+       })
+     };
+    return this.Http.get("http://127.0.0.1:3003/auto/",options);
   }
 }

@@ -11,16 +11,27 @@ export class HomeComponent implements OnInit {
 
 
   constructor(private miServicio : UserService,private router : Router) { }
-  user = {};
+  cliente = {cliente : {user :"" , pass : ""}};
   ngOnInit() {
-    localStorage.setItem("logueado",null);
+    localStorage.removeItem("token");
   }
-  ingresar(){
-   console.log(this.user);
-    this.miServicio.setUser(this.user);
-    // this.router.navigate(["/algo"]);
-    // this.miServicio.login(this.user);
-    this.router.navigate(["/algo"]);
+  // ingresar(){
+  //  console.log(this.user);
+  //   this.miServicio.setUser(this.user);
+  //   // this.router.navigate(["/algo"]);
+  //   // this.miServicio.login(this.user);
+  //   this.router.navigate(["/algo"]);
+  // }
+  agregarCliente(){
+    if(this.cliente.cliente.pass != "" && this.cliente.cliente.user != ""){
+      this.miServicio.htttpAgregar(this.cliente);
+    }
+    else{
+      console.log("Campos vacios");
+    }
+  }
+  autenticar(){
+    this.miServicio.httpAutenticar(this.cliente);
   }
 
 }

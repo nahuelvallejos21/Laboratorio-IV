@@ -1,11 +1,11 @@
-
 <div style="text-align:center;margin-top: 20%">
   <form class="box">
     <h1>Ingreso</h1>
-    <input type="text" placeholder="Nombre" name = "name" [(ngModel)] = "user.name">
+    <input style = "margin: auto"   type="text" placeholder="Nombre" name = "name" [(ngModel)] = "cliente.cliente.user">
     <br>
-    <input type = "password" placeholder="Contraseña" name = "password" [(ngModel)] = "user.pass">
+    <input type = "password" placeholder="Contraseña" name = "password" [(ngModel)] = "cliente.cliente.pass">
     <br>
-   <button (click) = "ingresar()" >Ingresar</button>
+    <button (click) = "agregarCliente()">Agregar Cliente</button>
+   <button (click) = "autenticar()" >Auntenticar</button>
   </form>
 </div>
