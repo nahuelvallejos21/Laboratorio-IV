@@ -7,7 +7,8 @@ import { HomeComponent } from './componentes/home/home.component';
 
 const routes: Routes = [
   {path : 'algo' , component : AlgoComponent , canActivate : [AuthGuard] },
-  {path : 'home' , component : HomeComponent}
+  {path : 'home' , component : HomeComponent},
+  {path : '' , component : HomeComponent}
 ];
 
 @NgModule({

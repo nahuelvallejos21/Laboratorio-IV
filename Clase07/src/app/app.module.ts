@@ -9,10 +9,7 @@ import {HttpClientModule} from '@angular/common/http';
 import { AngularFireModule } from '@angular/fire';
 import { config } from '../environments/environment';
 import {AngularFireAuthModule} from '@angular/fire/auth';
-// import { JwtModule } from "@auth0/angular-jwt";
-// export function tokenGetter() {
-//   return localStorage.getItem("token");
-// }
+import {AngularFireStorageModule} from '@angular/fire/storage'
 
 @NgModule({
   declarations: [
@@ -27,6 +24,7 @@ import {AngularFireAuthModule} from '@angular/fire/auth';
     HttpClientModule,
     AngularFireModule.initializeApp(config),
     AngularFireAuthModule,
+    AngularFireStorageModule
 
   ],
   providers: [],

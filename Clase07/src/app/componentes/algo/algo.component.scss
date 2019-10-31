@@ -12,6 +12,7 @@ div{
       transform: translate(-50%,-50%);
       background: #191919;
       text-align: center;
+      margin-top: -5%;
   
   }
   .box input[type = "text"],.box input[type = "password"]{
@@ -51,10 +52,39 @@ div{
       transition: 0.25s; 
       cursor: pointer;
       width: 120%;
-      left: 100%;
+      
   
   
   }
+  
   .box button:hover{
       background: #2ecc71;
   }
+  .boxTable{
+    border-radius : 24px;
+    border: 1;
+  }
+  .boxTable tr{
+    border-radius: 20px;
+  }
+  .spinner{
+    margin-top: -15%;
+  }
+  .buttonPDF button{
+    border:0;
+      background: none;
+      display : block;
+      text-align: center;
+      border:2px solid #2ecc71;
+      padding: 14px 40px;
+      outline: none;
+      color :white;
+      border-radius : 24px;
+      transition: 0.25s; 
+      cursor: pointer;
+      width: 120%;
+      
+  }
+  .buttonPDF button:hover{
+    background: #2ecc71;
+}

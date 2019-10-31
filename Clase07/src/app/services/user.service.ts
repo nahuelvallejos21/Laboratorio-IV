@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Router} from '@angular/router';
 import {AngularFireAuth} from '@angular/fire/auth';
-
+import {AngularFireStorage} from '@angular/fire/storage';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +10,7 @@ import {AngularFireAuth} from '@angular/fire/auth';
 export class UserService {
 
   static user;
-  constructor(private router : Router, private Http: HttpClient, private fireAuth : AngularFireAuth)  {
+  constructor(private router : Router, private Http: HttpClient, private fireAuth : AngularFireAuth,private nube : AngularFireStorage)  {
   }
   setUser(user : any){
     localStorage.setItem("logueado",user);
@@ -66,9 +66,7 @@ export class UserService {
         'token': token
        })
      };
-     this.Http.post("http://127.0.0.1:3003/auto/",auto,options).subscribe(data =>{
-       console.log(data);
-     })
+     return this.Http.post("http://127.0.0.1:3003/auto/",auto,options);
   }
   httpTraerAutos(){
     let token = localStorage.getItem("token");
@@ -80,5 +78,11 @@ export class UserService {
        })
      };
     return this.Http.get("http://127.0.0.1:3003/auto/",options);
+  }
+  subirArchivo(file : any,path : string){
+    return this.nube.upload(path,file);
+  }
+  traerArchivo(path : string){
+    return this.nube.ref(path).getDownloadURL()
   }
 }
