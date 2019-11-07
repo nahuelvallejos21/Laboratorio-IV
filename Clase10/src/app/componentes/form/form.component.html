@@ -1,0 +1,25 @@
+<div class = "cotainer">
+<div class="row">  
+<div class = "col-sm" style="text-align:center;margin-top: 5%">
+    <form class="box">
+      <h1>Ingreso</h1>
+      <input style = "margin: auto"   type="text" placeholder="Nombre" name = "nombre" [(ngModel)] = "entidad.nombre">
+      <input type = "text" placeholder="Apellido" name = "apellido" [(ngModel)] = "entidad.apellido">
+      <input type = "text" placeholder="Correo" name = "correo" [(ngModel)] = "entidad.correo">
+      <input type = "text" placeholder="D.N.I" name = "dni" [(ngModel)] = "entidad.dni">
+      <app-mi-captcha (verificar) = verificar($event)></app-mi-captcha>
+      <button (click) = "entrar()" [disabled] = "disabled">Generar QR</button>
+    </form>
+    <div *ngIf = "mostrar2" class="alert alert-warning" role="alert">
+        No se haga el vivo, y complete todos los campos por favor.
+      </div>
+</div>
+<div class="col-sm box" *ngIf = "mostrar" > 
+  <div class="card" style="width: 20rem;margin-top:10%">
+    <h1 style="margin-top:5%;text-align: center;">QR Generado</h1>
+    <app-mi-qr [data] = "entidad" ></app-mi-qr>
+    <label>Nombre: {{entidad.nombre}} <br> Apellido: {{entidad.apellido}} <br>Correo: {{entidad.correo}} <br> D.N.I: {{entidad.dni}}</label>
+  </div>
+</div>
+</div>
+</div>  

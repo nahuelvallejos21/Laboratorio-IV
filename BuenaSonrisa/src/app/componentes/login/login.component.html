@@ -1,0 +1,45 @@
+<div class = "row card text-center mx-auto" style="width: 30rem;margin-top: 3%;">
+        <div class="card-body">
+            <form >
+              <img src="../../../assets/buenasonrisa.png" width="120" height="80">
+                <br>
+                <div class="form-group">
+                    <i class="fas fa-user-circle" style="font-size: 200%;color: white"></i> 
+                </div>
+                <div class="form group">
+                        <div class="input-div">
+                            <div class="i">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <input name="Correo" placeholder="Correo electrónico o nick"  class = "input" type="email" [(ngModel)] = "usuario.correo_nick">
+                        </div>
+                </div>
+                <div class="form-group">
+                        <i class="fas fa-key" style="font-size: 200%;color: white"></i> 
+                    </div>
+                <div class="form group">
+                    <div class="input-div">
+                            <div class="i">
+                                    <i class="fas fa-lock"></i>
+                                </div>
+                        <input id = "legajo" name="usuario" placeholder="Contraseña"  class = "input" type="password" [(ngModel)] = "usuario.clave">
+                    </div>
+                </div>
+                <br>
+                <div class="form group text-left">
+                   <button class="btn btn-primary" (click) = login()>Aceptar</button>
+                </div>
+                <div class="alert alert-warning alert-dismissible fade show" role="alert" *ngIf = "mostrarAlerta" style="margin-top: 5%">
+                        <strong>Error al iniciar sesión!</strong>. Datos incorrectos
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close" (click) = cerrar()>
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                 </div>
+            </form>
+                
+         </div>
+ </div>
+
+   
+
+
