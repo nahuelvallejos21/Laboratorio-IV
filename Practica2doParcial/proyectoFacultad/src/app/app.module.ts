@@ -12,7 +12,9 @@ import {AngularFireAuthModule} from "@angular/fire/auth";
 import { HomeComponent } from './componentes/home/home.component';
 import { LoginComponent } from './componentes/login/login.component';
 import { BarraComponent } from './componentes/barra/barra.component';
-import { MateriasComponent } from './componentes/materias/materias.component'
+import { MateriasComponent } from './componentes/materias/materias.component';
+import { UsuariosComponent } from './componentes/usuarios/usuarios.component';
+import { FiltroComponent } from './componentes/filtro/filtro.component'
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,7 +22,9 @@ import { MateriasComponent } from './componentes/materias/materias.component'
     HomeComponent,
     LoginComponent,
     BarraComponent,
-    MateriasComponent
+    MateriasComponent,
+    UsuariosComponent,
+    FiltroComponent
   ],
   imports: [
     BrowserModule,

@@ -10,6 +10,7 @@ import { Entidad } from 'src/app/modals/entidad';
 export class HomeComponent implements OnInit {
 
   entidadLogueada : Entidad = {correo : "" , clave : "" , perfil : ""};
+  perfil: string;
   constructor(private facultadService : FacultadService) { }
 
   ngOnInit() {
@@ -22,6 +23,9 @@ export class HomeComponent implements OnInit {
          }
       })
    })
+  }
+  cambiarPerfil(event){
+    this.perfil = event;
   }
 
 }
