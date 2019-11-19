@@ -1,18 +1,18 @@
-<div>
-{{perfil}}
-<div class="col-12">
-  <table class="table">
-      <tr style = "background-color: #434e5a;color:white">
-        <th><div>Correo</div></th>
-        <th><div>Perfil</div></th>
-      </tr>
-      <tr *ngFor = "let item of usuarios">
+<table id="miTabla" class="table">
+  <thead>
+  <tr style = "background-color: #434e5a;color:white">
+    <th>Correo</th>
+    <th>Perfil</th>
+  </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor = "let item of usuarios" style="color:white">
+      <td *ngIf = "perfil == item.perfil">{{item.correo}}</td>
+      <td *ngIf = "perfil == item.perfil">{{item.perfil}}</td>
+    </tr>
+  </tbody>
+</table>
+<app-descarga idHtml = "miTabla"></app-descarga>
 
-            <td *ngIf = "perfil == item.perfil">{{item.correo}}</td>
-            <td *ngIf = "perfil == item.perfil">{{item.perfil}}</td>
 
 
-      </tr>
-  </table>
-  </div>
-</div>

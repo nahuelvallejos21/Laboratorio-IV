@@ -49,7 +49,7 @@ export class LoginComponent implements OnInit {
         await this.facultadService.iniciarSesion(this.entidad);
         this.mostrar2 = true;
         setTimeout(()=>{
-          this.router.navigate(["/home"]);
+          //this.router.navigate(["/home"]);
         },5000);
        }
        catch(e){

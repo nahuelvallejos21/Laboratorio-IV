@@ -9,21 +9,13 @@ import { Component, OnInit , Input} from '@angular/core';
 export class UsuariosComponent implements OnInit {
 
   usuarios = [];
-  @Input() perfil : string;
+  @Input() perfil : string = "profesor";
   constructor(private facultadService : FacultadService) { }
 
   ngOnInit() {
     console.log("Estoy6 en el change");
     this.facultadService.usuarios().subscribe(datos =>{
-
-      this.usuarios = datos;
-      // datos.forEach(element =>{
-      //   if(element.perfil == this.perfil){
-      //     this.usuarios.push(element);
-      //   }
-      // })
-
-
+       this.usuarios = datos;
     })
   }
 

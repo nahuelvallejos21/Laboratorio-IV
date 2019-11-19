@@ -12,7 +12,7 @@ export class FiltroComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    // this.cambio.emit(this.perfil);
+   this.cambio.emit(this.perfil);
   }
   cambioPerfil(){
     console.log("hoal");

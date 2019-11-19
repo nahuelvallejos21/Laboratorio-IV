@@ -14,7 +14,14 @@ import { LoginComponent } from './componentes/login/login.component';
 import { BarraComponent } from './componentes/barra/barra.component';
 import { MateriasComponent } from './componentes/materias/materias.component';
 import { UsuariosComponent } from './componentes/usuarios/usuarios.component';
-import { FiltroComponent } from './componentes/filtro/filtro.component'
+import { FiltroComponent } from './componentes/filtro/filtro.component';
+import { UsuariosFiltroComponent } from './componentes/usuarios-filtro/usuarios-filtro.component';
+import { DescargaComponent } from './componentes/descarga/descarga.component';
+import { InscripcionComponent } from './componentes/inscripcion/inscripcion.component';
+import { ColorCeldaPipe } from './pipes/color-celda.pipe';
+import { MateriasProfesorComponent } from './componentes/materias-profesor/materias-profesor.component';
+import { MenuChatComponent } from './componentes/menu-chat/menu-chat.component';
+import { ChatComponent } from './componentes/chat/chat.component'
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,7 +31,14 @@ import { FiltroComponent } from './componentes/filtro/filtro.component'
     BarraComponent,
     MateriasComponent,
     UsuariosComponent,
-    FiltroComponent
+    FiltroComponent,
+    UsuariosFiltroComponent,
+    DescargaComponent,
+    InscripcionComponent,
+    ColorCeldaPipe,
+    MateriasProfesorComponent,
+    MenuChatComponent,
+    ChatComponent
   ],
   imports: [
     BrowserModule,

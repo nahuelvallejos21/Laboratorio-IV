@@ -3,6 +3,8 @@ import {AngularFirestore, AngularFirestoreCollection} from '@angular/fire/firest
 import {AngularFireAuth} from '@angular/fire/auth'
 import { Entidad } from '../modals/entidad';
 import { Materia } from '../modals/materia';
+import { Router } from '@angular/router';
+import { Mensaje } from '../modals/mensaje';
 @Injectable({
   providedIn: 'root'
 })
@@ -11,9 +13,11 @@ export class FacultadService {
   
   entidadref : AngularFirestoreCollection<Entidad>;
   materiaRef : AngularFirestoreCollection<Materia>;
-  constructor(private bd : AngularFirestore, private auth : AngularFireAuth) { 
+  chatRef    : AngularFirestoreCollection<Mensaje>;
+  constructor(private bd : AngularFirestore, private auth : AngularFireAuth , private router : Router) { 
      this.entidadref = this.bd.collection("entidades");
      this.materiaRef = this.bd.collection("materias");
+     this.chatRef = this.bd.collection("mensajes",ref => ref.orderBy("fecha","asc").orderBy("hora","asc"));
   }
   async agregarEntidad(obj : Entidad){
       try{
@@ -30,7 +34,7 @@ export class FacultadService {
         let result = await this.auth.auth.signInWithEmailAndPassword(obj.correo,obj.clave);
         result.user.getIdToken().then(data =>{
            localStorage.setItem("token" , data);
-           localStorage.setItem("usuario_logueado", obj.correo);
+           this.guardarEntidadLogueada(obj);
         })
      }
      catch(e){
@@ -45,5 +49,30 @@ export class FacultadService {
   }
   materias(){
    return this.materiaRef.valueChanges();
+  }
+  guardarEntidadLogueada(obj : Entidad){
+      this.usuarios().subscribe(data =>{
+        console.log(data);
+        data.forEach(element=>{
+         if(element.correo == obj.correo){
+            localStorage.setItem("usuario_logueado",JSON.stringify(element));
+            if(element.perfil == "administrador"){
+               this.router.navigate(["home/registrar-materia"]);
+            }
+            else if(element.perfil == "profesor"){
+               this.router.navigate(["home/materias-profesor"]);
+            }
+            else if(element.perfil == "alumno"){
+               this.router.navigate(["home/inscripcion-materia"]);
+            }
+         }
+        })
+   })
+  }
+  inscribirse(materia : Materia){
+    this.materiaRef.doc(materia.id).set(materia);
+  }
+  agregarMsj(obj : Mensaje){
+     this.chatRef.add(obj);
   }
 }

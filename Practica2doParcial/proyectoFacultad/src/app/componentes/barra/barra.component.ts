@@ -8,10 +8,23 @@ import { Entidad } from 'src/app/modals/entidad';
 })
 export class BarraComponent implements OnInit {
   entidad : Entidad = {correo: "" , clave : "" , perfil : ""};
+  esProfesor: boolean = false;
+  esAdmin : boolean = false;
+  esAlumno : boolean = false;
   constructor() { }
 
   ngOnInit() {
-    this.entidad.correo = localStorage.getItem("usuario_logueado");
+    this.entidad= JSON.parse(localStorage.getItem("usuario_logueado"));
+
+    if(this.entidad.perfil == "administrador"){
+      this.esAdmin = true;
+    }
+    else if(this.entidad.perfil == "profesor"){
+      this.esProfesor = true;
+    }
+    else if(this.entidad.perfil == "alumno"){
+      this.esAlumno = true;
+    }
   }
 
 }

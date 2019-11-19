@@ -9,8 +9,7 @@ import { FacultadService } from 'src/app/servicios/facultad.service';
   styleUrls: ['./materias.component.scss']
 })
 export class MateriasComponent implements OnInit {
-  @Input() entidadLogueada : Entidad = {correo : "" , clave : "" , perfil : ""};
-  materia : Materia = {nombre : "" ,cuatrimestre : 1 , cupos : 1};
+  materia : Materia = {nombre : "" ,cuatrimestre : 1 , cupos : 1 , alumnos : []};
   profesores = [];
   materias = [];
   constructor(private facultadService : FacultadService) { }
@@ -27,6 +26,7 @@ export class MateriasComponent implements OnInit {
    })
    this.facultadService.materias().subscribe(data =>{
      this.materias = data;
+     console.log(this.materias);
    })
   }
   agregarMateria(){

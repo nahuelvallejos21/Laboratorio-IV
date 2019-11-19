@@ -1,6 +1,2 @@
 <app-barra></app-barra>
-<div *ngIf = "entidadLogueada.perfil == 'administrador'">
-   <app-materias [entidadLogueada] = "entidadLogueada"></app-materias>
-   <app-usuarios [perfil] = perfil></app-usuarios>
-   <app-filtro (cambio)= cambiarPerfil($event)></app-filtro>
-</div>
+<router-outlet></router-outlet>

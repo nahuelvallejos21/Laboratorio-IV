@@ -1,5 +1,7 @@
-<div class = "modal-dialog text center">
-        <div class = "col-sm-12 main-section">
+<div class = "row">
+<div class="col-1"></div>
+<div class = "col-sm modal-dialog text center">
+        <div class = " main-section">
             <div class="modal-content">
                 <div class="text-center">
                     <h1 class="text-white">Registro de materias</h1>
@@ -18,6 +20,9 @@
                         <select class="custom-select" name="cuatrimestre" [(ngModel)] = "materia.cuatrimestre">
                             <option selected value="1">1° Cuatrimestre</option>
                             <option value = "2">2° Cuatrimestre</option>
+                            <option value = "3">3° Cuatrimestre</option>
+                            <option value = "4">4° Cuatrimestre</option>
+                            <option value = "5">5° Cuatrimestre</option>
                         </select> 
                     </div>
                     <div>
@@ -36,21 +41,26 @@
             </div>
         </div>
 </div>
-<div class="col-12">
-<table class="table">
+<div class="col-sm">
+<table class="table" id = "miTabla">
+  <thead>
     <tr style = "background-color: #434e5a;color:white">
-      <th><div>Nombre</div></th>
-      <th><div>Cuatrimestre</div></th>
-      <th><div>Cupos</div></th>
-      <th><div>Profesor</div></th>
+      <th>Nombre</th>
+      <th>Cuatrimestre</th>
+      <th>Cupos</th>
+      <th>Profesor</th>
     </tr>
-    <tr *ngFor = "let item of materias" style="overflow: scroll ">
+  </thead>
+  <tbody>
+    <tr *ngFor = "let item of materias" style="color:white">
         <td>{{item.nombre}}</td>
-        <td>{{item.cuatrimestre}}</td>
+        <td>{{item.cuatrimestre}}°</td>
         <td>{{item.cupos}}</td>
         <td>{{item.profesor}}</td>
     </tr>
+  </tbody>
 </table>
+<app-descarga idHtml = "miTabla"></app-descarga>
 </div>
 
 
