@@ -32,7 +32,9 @@
                            <option [value] = "item.correo" *ngFor = "let item of profesores">{{item.correo}}</option>
                         </select> 
                     </div>
-                    <button type = "submit" class="btn btn-danger" (click) = "agregarMateria()" >Registrar materia</button>
+                    <br>
+                    <app-mi-captcha (verificar) = verificar($event)></app-mi-captcha>
+                    <button type = "submit" class="btn btn-danger" (click) = "agregarMateria()" [disabled] = "disabled">Registrar materia</button>
                  </form>
                  <div *ngIf = "mostrar2">
                     <img src = "../../../assets/loading.gif" width="70" height="70" class="centrarSpinner">

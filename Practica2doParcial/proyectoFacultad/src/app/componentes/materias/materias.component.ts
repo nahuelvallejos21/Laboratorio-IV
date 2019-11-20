@@ -12,6 +12,7 @@ export class MateriasComponent implements OnInit {
   materia : Materia = {nombre : "" ,cuatrimestre : 1 , cupos : 1 , alumnos : []};
   profesores = [];
   materias = [];
+  disabled : boolean = true;
   constructor(private facultadService : FacultadService) { }
 
   ngOnInit() {
@@ -32,6 +33,16 @@ export class MateriasComponent implements OnInit {
   agregarMateria(){
     console.log(this.materia);
     this.facultadService.agregarMateria(this.materia);
+  }
+  verificar(event){
+    console.log(event);
+    if(event !== null){
+     this.disabled = false;
+    }
+    else{
+      console.log("Ya no es valido");
+      this.disabled = true;
+    }
   }
 
 }

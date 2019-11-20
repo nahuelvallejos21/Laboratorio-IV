@@ -15,6 +15,7 @@ export class RegistroComponent implements OnInit {
   mostrar2 : boolean = false;
   msj : string;
   tipo: string = "password";
+  disabled : boolean = true;
   constructor(private facultadService : FacultadService , private router : Router) { 
   }
 
@@ -83,6 +84,16 @@ export class RegistroComponent implements OnInit {
   clave(tipo : string){
     console.log("Hola, estoy dentro");
     this.tipo = tipo;
+  }
+  verificar(event){
+    console.log(event);
+    if(event !== null){
+     this.disabled = false;
+    }
+    else{
+      console.log("Ya no es valido");
+      this.disabled = true;
+    }
   }
 
 }

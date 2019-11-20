@@ -21,7 +21,9 @@ import { InscripcionComponent } from './componentes/inscripcion/inscripcion.comp
 import { ColorCeldaPipe } from './pipes/color-celda.pipe';
 import { MateriasProfesorComponent } from './componentes/materias-profesor/materias-profesor.component';
 import { MenuChatComponent } from './componentes/menu-chat/menu-chat.component';
-import { ChatComponent } from './componentes/chat/chat.component'
+import { ChatComponent } from './componentes/chat/chat.component';
+import { MiCaptchaComponent } from './componentes/mi-captcha/mi-captcha.component';
+import { RecaptchaModule } from 'ng-recaptcha';
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,7 +40,8 @@ import { ChatComponent } from './componentes/chat/chat.component'
     ColorCeldaPipe,
     MateriasProfesorComponent,
     MenuChatComponent,
-    ChatComponent
+    ChatComponent,
+    MiCaptchaComponent
   ],
   imports: [
     BrowserModule,
@@ -46,7 +49,8 @@ import { ChatComponent } from './componentes/chat/chat.component'
     FormsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule,
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    RecaptchaModule
   ],
   providers: [],
   bootstrap: [AppComponent]
