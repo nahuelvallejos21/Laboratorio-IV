@@ -1,0 +1,46 @@
+<div class = "modal-dialog text center">
+    <div class = "col-sm-9 main-section">
+        <div class="modal-content">
+           <div class="col-sm-12 user-img">
+              <img [src] = "entidad.foto" class="img-redonda">
+           </div>
+           <div class = "col-12 form-input">
+             <form>
+                <div class="form-group">
+                    <i class="fas fa-user"></i>
+                    <input type = "text" class = "form-control" name = "nombre" placeholder="Ingrese nombre" [(ngModel)] = "entidad.nombre">
+                </div>
+                <div class="form-group">
+                    <i class="fas fa-user"></i>
+                    <input type = "text" class = "form-control" name = "apellido" placeholder="Ingrese apellido" [(ngModel)] = "entidad.apellido">
+                </div>
+                 <div class="form-group">
+                    <i class="fas fa-envelope"></i>
+                    <input type = "email" class = "form-control" name = "correo" placeholder="Ingrese un correo electrónico" [(ngModel)] = "entidad.correo">
+                 </div>
+                 <div class="form-group">
+                    <i class="fas fa-lock"></i>
+                    <input [type] = "tipo" class = "form-control" name = "clave" placeholder="Ingrese una contraseña"  [(ngModel)] = "entidad.clave">
+                    <span class = "fas fa-eye" (mouseover) = "clave('text')" (mouseout) = "clave('password')"></span>
+                </div>
+                <div class="form-group" >
+                    <select class="custom-select" name="perfil" [(ngModel)] = "entidad.perfil">
+                        <option selected value="admin">Administrador</option>
+                        <option value = "cliente">Cliente</option>
+                        <option value="especialista">Especialista</option>
+                        <option value="recepcionista">Recepcionista</option>
+                    </select> 
+                </div>
+                <div class="btn btn-success btn-sm float-left">
+                   <input id = "myFile" type="file" style="width: 80%;" accept="image/.jpg" (change) = "actualizarFoto($event)" > 
+                </div>
+                <div *ngIf = "!mostrarBoton">
+                   <img src = "../../../assets/loading.gif" width="70" height="70" class="centrarSpinner">
+                </div>
+                <button *ngIf = "!mostrarMsj && mostrarBoton" type = "submit" [disabled] = "disabled" class="btn" (click) = "registrar()" >Registrarme</button>
+                <label *ngIf = "mostrarMsj" class="alert alert-warning" role="alert">{{msj}}</label> 
+           </form>
+        </div>
+    </div>
+</div>
+
