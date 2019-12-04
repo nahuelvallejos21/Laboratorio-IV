@@ -23,14 +23,14 @@
                             <option value = "3">3° Cuatrimestre</option>
                             <option value = "4">4° Cuatrimestre</option>
                             <option value = "5">5° Cuatrimestre</option>
-                        </select> 
+                        </select>
                     </div>
                     <div>
                         <br>
                         <label class="text-white">Elija el profesor que dictara la materia</label>
                         <select class="custom-select" name="profesor" [(ngModel)] = "materia.profesor">
                            <option [value] = "item.correo" *ngFor = "let item of profesores">{{item.correo}}</option>
-                        </select> 
+                        </select>
                     </div>
                     <br>
                     <app-mi-captcha (verificar) = verificar($event)></app-mi-captcha>
