@@ -10,13 +10,33 @@ import {AngularFireModule} from '@angular/fire';
 import {AngularFireAuthModule} from '@angular/fire/auth';
 import {AngularFirestoreModule} from '@angular/fire/firestore';
 import {AngularFireStorageModule} from '@angular/fire/storage';
-import { HomeComponent } from './componentes/home/home.component'
+import { HomeComponent } from './componentes/home/home.component';
+import { TurnoComponent } from './componentes/turno/turno.component';
+import { MisTurnosComponent } from './componentes/mis-turnos/mis-turnos.component';
+import { AtenderTurnosComponent } from './componentes/atender-turnos/atender-turnos.component';
+import { EncuestaComponent } from './componentes/encuesta/encuesta.component';
+import { CabeceraComponent } from './componentes/cabecera/cabecera.component';
+import { EstadosPipe } from './pipes/estados/estados.pipe';
+import { DescargaComponent } from './componentes/descarga/descarga.component'
+import { Angular2CsvModule } from 'angular2-csv';
+import { FechaPipe } from './pipes/fecha/fecha.pipe';
+import { RecaptchaModule } from 'ng-recaptcha';
+import { MiCaptchaComponent } from './componentes/mi-captcha/mi-captcha.component';
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     RegistroComponent,
-    HomeComponent
+    HomeComponent,
+    TurnoComponent,
+    MisTurnosComponent,
+    AtenderTurnosComponent,
+    EncuestaComponent,
+    CabeceraComponent,
+    EstadosPipe,
+    DescargaComponent,
+    FechaPipe,
+    MiCaptchaComponent
   ],
   imports: [
     BrowserModule,
@@ -25,7 +45,9 @@ import { HomeComponent } from './componentes/home/home.component'
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,
     AngularFireStorageModule,
-    AngularFirestoreModule
+    AngularFirestoreModule,
+    Angular2CsvModule,
+    RecaptchaModule
   ],
   providers: [],
   bootstrap: [AppComponent]

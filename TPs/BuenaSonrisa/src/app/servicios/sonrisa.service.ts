@@ -4,6 +4,8 @@ import { Entidad } from '../modals/entidad';
 import { AngularFirestoreCollection, AngularFirestore } from '@angular/fire/firestore';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { Router } from '@angular/router';
+import { Turno } from '../modals/turno';
+import { Reseña } from '../modals/reseña';
 
 @Injectable({
   providedIn: 'root'
@@ -11,10 +13,14 @@ import { Router } from '@angular/router';
 export class SonrisaService {
 
   entidadRef : AngularFirestoreCollection<Entidad>
+  turnoRef : AngularFirestoreCollection<Turno>;
+  reseñaRef : AngularFirestoreCollection<Reseña>;
   constructor(private nube : AngularFireStorage , private bd : AngularFirestore , private fireAuth : AngularFireAuth,private router : Router) { 
     this.entidadRef = this.bd.collection("entidades");
+    this.turnoRef = this.bd.collection("turnos" ,ref => ref.orderBy("fecha","asc").orderBy("horario","asc"));
+    this.reseñaRef = this.bd.collection("reseñas");
+    
   }
-
   subirArchivo(file:any , path : string){
     return this.nube.upload(path,file);
   }
@@ -38,8 +44,7 @@ export class SonrisaService {
         const result = await this.fireAuth.auth.signInWithEmailAndPassword(obj.correo,obj.clave);
         result.user.getIdToken().then(token =>{
           localStorage.setItem("token" , token);
-          localStorage.setItem("entidad_logueada" ,JSON.stringify(obj));
-          this.router.navigate(["/home"]);
+          this.guardarEntidadLogueada(obj);
 
         })
      }
@@ -47,4 +52,23 @@ export class SonrisaService {
        throw e;
      }
   }
+  guardarEntidadLogueada(obj : Entidad){
+    this.entidadRef.valueChanges().subscribe(data =>{
+      console.log(data);
+      data.forEach(element=>{
+       if(element.correo == obj.correo){
+          localStorage.setItem("entidad_logueada",JSON.stringify(element));
+          if(element.perfil == "cliente"){
+            this.router.navigate(["/home/turno"]);
+          }
+          else if(element.perfil == "especialista"){
+            this.router.navigate(["/home/atender"]);
+          }
+          else if(element.perfil == "admin"){
+            this.router.navigate(["/registro"]);
+          }
+       }
+      })
+ })
+}
 }

@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 export class RegistroComponent implements OnInit {
   
   entidad = {} as Entidad;
-  disabled : boolean = false;
+  disabled : boolean = true;
   tipo : string = "password";
   msj : string = "";
   mostrarMsj : boolean = false;
@@ -78,8 +78,7 @@ export class RegistroComponent implements OnInit {
         console.log("Archivo subido: " + path)
         this.sonrisaService.traerArchivo(path).subscribe(data =>{
           this.entidad.foto = data;
-          console.log(this.entidad.foto);
-          this.disabled = false;
+          console.log(this.entidad.foto);;
         })
       }
     })
@@ -107,6 +106,16 @@ export class RegistroComponent implements OnInit {
     }
     else{
       return false;
+    }
+  }
+  verificar(event){
+    console.log(event);
+    if(event !== null){
+     this.disabled = false;
+    }
+    else{
+      console.log("Ya no es valido");
+      this.disabled = true;
     }
   }
 
